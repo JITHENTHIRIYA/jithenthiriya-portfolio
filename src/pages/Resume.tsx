@@ -5,8 +5,13 @@ import { Badge } from '@/components/ui/badge';
 
 const Resume = () => {
   const handleDownload = () => {
-    // Handle PDF download
-    console.log('Download resume');
+    // Create a link element to trigger the download
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Jithenthiriya_Coimbatore_Kathirvel_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

@@ -1,8 +1,18 @@
-import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, MapPin, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Home = () => {
+  const handleDownloadResume = () => {
+    // Create a link element to trigger the download
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Jithenthiriya_Coimbatore_Kathirvel_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="p-8 max-w-4xl">
       {/* Code comments style header */}
@@ -156,6 +166,15 @@ const Home = () => {
               LinkedIn
             </Button>
           </a>
+          
+          <Button 
+            onClick={handleDownloadResume}
+            variant="outline" 
+            className="border-vscode-green text-vscode-green hover:bg-vscode-green hover:text-background"
+          >
+            <Download size={16} className="mr-2" />
+            Download Resume
+          </Button>
         </div>
       </div>
     </div>
